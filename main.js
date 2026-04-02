@@ -1,5 +1,17 @@
 const lottoNumbersContainer = document.getElementById('lotto-numbers');
 const generateBtn = document.getElementById('generate-btn');
+const themeToggleBtn = document.getElementById('theme-toggle');
+const themeStorageKey = 'lotto-theme';
+
+const applyTheme = (theme) => {
+    const isLightMode = theme === 'light';
+    document.body.classList.toggle('light-mode', isLightMode);
+    themeToggleBtn.textContent = isLightMode ? 'Dark Mode' : 'Light Mode';
+    themeToggleBtn.setAttribute(
+        'aria-label',
+        isLightMode ? 'Switch to dark mode' : 'Switch to light mode'
+    );
+};
 
 const generateLottoNumbers = () => {
     const numbers = new Set();
@@ -23,6 +35,15 @@ generateBtn.addEventListener('click', () => {
     const newNumbers = generateLottoNumbers();
     displayNumbers(newNumbers);
 });
+
+themeToggleBtn.addEventListener('click', () => {
+    const nextTheme = document.body.classList.contains('light-mode') ? 'dark' : 'light';
+    applyTheme(nextTheme);
+    localStorage.setItem(themeStorageKey, nextTheme);
+});
+
+const savedTheme = localStorage.getItem(themeStorageKey);
+applyTheme(savedTheme === 'light' ? 'light' : 'dark');
 
 // Initial generation
 displayNumbers(generateLottoNumbers());
