@@ -46,6 +46,8 @@ body {
 
 .container {
     width: min(100%, 70rem);
+    display: grid;
+    gap: 1.5rem;
 }
 
 .card {
@@ -210,6 +212,31 @@ body.light-mode .feature-list li {
 
 .theme-toggle:hover {
     background-color: var(--toggle-hover);
+}
+
+.comments-card {
+    display: grid;
+    gap: 1.25rem;
+}
+
+.comments-header {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.comments-header h2 {
+    margin: 0;
+    font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+}
+
+.comments-description {
+    margin: 0;
+    color: var(--muted-text);
+    line-height: 1.7;
+}
+
+#disqus_thread {
+    min-height: 12rem;
 }
 
 @media (max-width: 800px) {
