@@ -3,29 +3,28 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lotto Number Generator</title>
+    <title>제휴 문의</title>
     <link href="/style.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <section class="card hero-card">
-            <div class="toolbar">
-                <h1>Lotto Number Generator</h1>
-                <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to light mode">
-                    Light Mode
-                </button>
-            </div>
-            <div id="lotto-numbers" class="lotto-container"></div>
-            <button id="generate-btn">Generate Numbers</button>
-        </section>
-
+    <main class="container">
         <section class="card partner-card" aria-labelledby="partner-form-title">
             <div class="section-copy">
-                <p class="eyebrow">Partnership</p>
-                <h2 id="partner-form-title">제휴 문의</h2>
+                <p class="eyebrow">Partnership Inquiry</p>
+                <div class="copy-header">
+                    <h1 id="partner-form-title">브랜드와 함께할 제휴를 기다립니다</h1>
+                    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to light mode">
+                        Light Mode
+                    </button>
+                </div>
                 <p class="section-description">
-                    협업 제안, 광고, 공동 프로모션 문의를 남겨주세요. 확인 후 연락드리겠습니다.
+                    광고, 공동 프로모션, 콘텐츠 협업, 제안 문의를 남겨주세요. 접수된 내용을 확인한 뒤 빠르게 연락드리겠습니다.
                 </p>
+                <ul class="feature-list" aria-label="제휴 문의 안내">
+                    <li>평일 기준 1~2일 내 회신</li>
+                    <li>브랜드 제휴, 캠페인, 제안서 접수 가능</li>
+                    <li>필요 시 별도 미팅 일정 조율</li>
+                </ul>
             </div>
 
             <form
@@ -50,11 +49,16 @@
                 </label>
 
                 <label class="field">
+                    <span>연락처</span>
+                    <input type="text" name="phone" placeholder="010-0000-0000" />
+                </label>
+
+                <label class="field">
                     <span>문의 내용</span>
                     <textarea
                         name="message"
-                        rows="5"
-                        placeholder="제휴 목적과 제안 내용을 간단히 적어주세요"
+                        rows="6"
+                        placeholder="제휴 목적, 기대 효과, 진행 희망 일정 등을 적어주세요"
                         required
                     ></textarea>
                 </label>
@@ -67,7 +71,7 @@
                 </div>
             </form>
         </section>
-    </div>
+    </main>
     <script defer type="text/javascript" src="/main.js"></script>
 </body>
 </html>
