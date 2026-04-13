@@ -2,7 +2,22 @@ const themeToggleBtn = document.getElementById('theme-toggle');
 const partnerForm = document.getElementById('partner-form');
 const partnerSubmitBtn = document.getElementById('partner-submit');
 const formStatus = document.getElementById('form-status');
+const phoneInput = partnerForm.querySelector('input[name="phone"]');
 const themeStorageKey = 'partner-form-theme';
+
+const formatPhoneNumber = (value) => {
+    const digits = value.replace(/\D/g, '').slice(0, 11);
+
+    if (digits.length <= 3) {
+        return digits;
+    }
+
+    if (digits.length <= 7) {
+        return `${digits.slice(0, 3)}-${digits.slice(3)}`;
+    }
+
+    return `${digits.slice(0, 3)}-${digits.slice(3, 7)}-${digits.slice(7)}`;
+};
 
 const applyTheme = (theme) => {
     const isLightMode = theme === 'light';
@@ -20,8 +35,14 @@ themeToggleBtn.addEventListener('click', () => {
     localStorage.setItem(themeStorageKey, nextTheme);
 });
 
+phoneInput.addEventListener('input', (event) => {
+    const formattedPhoneNumber = formatPhoneNumber(event.target.value);
+    event.target.value = formattedPhoneNumber;
+});
+
 partnerForm.addEventListener('submit', async (event) => {
     event.preventDefault();
+    phoneInput.value = formatPhoneNumber(phoneInput.value);
 
     formStatus.textContent = '문의 내용을 전송하고 있습니다...';
     partnerSubmitBtn.disabled = true;
