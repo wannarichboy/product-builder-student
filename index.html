@@ -1,21 +1,72 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lotto Number Generator</title>
-    <link href='/style.css' rel='stylesheet'>
+    <link href="/style.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <div class="toolbar">
-            <h1>Lotto Number Generator</h1>
-            <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to light mode">
-                Light Mode
-            </button>
-        </div>
-        <div id="lotto-numbers" class="lotto-container"></div>
-        <button id="generate-btn">Generate Numbers</button>
+        <section class="card hero-card">
+            <div class="toolbar">
+                <h1>Lotto Number Generator</h1>
+                <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to light mode">
+                    Light Mode
+                </button>
+            </div>
+            <div id="lotto-numbers" class="lotto-container"></div>
+            <button id="generate-btn">Generate Numbers</button>
+        </section>
+
+        <section class="card partner-card" aria-labelledby="partner-form-title">
+            <div class="section-copy">
+                <p class="eyebrow">Partnership</p>
+                <h2 id="partner-form-title">제휴 문의</h2>
+                <p class="section-description">
+                    협업 제안, 광고, 공동 프로모션 문의를 남겨주세요. 확인 후 연락드리겠습니다.
+                </p>
+            </div>
+
+            <form
+                id="partner-form"
+                class="partner-form"
+                action="https://formspree.io/f/maqaywao"
+                method="POST"
+            >
+                <label class="field">
+                    <span>회사명</span>
+                    <input type="text" name="company" placeholder="회사명을 입력해주세요" required />
+                </label>
+
+                <label class="field">
+                    <span>담당자명</span>
+                    <input type="text" name="name" placeholder="이름을 입력해주세요" required />
+                </label>
+
+                <label class="field">
+                    <span>이메일</span>
+                    <input type="email" name="email" placeholder="name@company.com" required />
+                </label>
+
+                <label class="field">
+                    <span>문의 내용</span>
+                    <textarea
+                        name="message"
+                        rows="5"
+                        placeholder="제휴 목적과 제안 내용을 간단히 적어주세요"
+                        required
+                    ></textarea>
+                </label>
+
+                <input type="hidden" name="_subject" value="New partnership inquiry" />
+
+                <div class="form-actions">
+                    <button id="partner-submit" class="submit-btn" type="submit">문의 보내기</button>
+                    <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+                </div>
+            </form>
+        </section>
     </div>
     <script defer type="text/javascript" src="/main.js"></script>
 </body>
